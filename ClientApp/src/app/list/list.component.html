@@ -1,0 +1,26 @@
+<h1>Animalist</h1>
+
+<p>Below is an interactive list of animals</p>
+
+<p *ngIf="!animals"><em>Loading...</em></p>
+
+<table class="table" *ngIf="animals">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Remove?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let animal of animals">
+      <td>{{ animal.id }}</td>
+      <td>{{ animal.name }}</td>
+      <td><button (click)="removeAnimal(animal.id)">Bin</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<input #textbox type="text">
+<button (click)="addAnimal(textbox.value)">Add</button>
+
